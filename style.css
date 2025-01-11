@@ -30,7 +30,6 @@ header > h1 {
 main {
     display: flex;
     gap: 20px;
-    align-items: flex-start;
 }
 
 aside {
@@ -44,9 +43,10 @@ aside {
 .canvas {
     width: 100%;
     max-width: 720px;
-    aspect-ratio: 1;
-    background-color: #555;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 .row {
@@ -57,6 +57,45 @@ aside {
 .pixel {
     width: 100%;
     aspect-ratio: 1;
-    background-color: #999;
+    background-color: #444;
     user-select: none;
 }
+
+.option-title {
+    color: #ebebeb;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.input-size {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #212121;
+    outline: none;
+    margin: 10px 0 20px;
+}
+
+.input-color {
+    appearance: none;
+    width: 42px;
+    height: 45px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 5px 0 15px;
+}
+
+.input-color::-moz-color-swatch {
+    border-radius: 50px;
+    border: 2px solid #ebebeb;
+  }
+  
+.input-color::-webkit-color-swatch {
+    border-radius: 50px;
+    border: 2px solid #ebebeb;
+  }
