@@ -141,4 +141,5 @@ aside {
     width: 2px;
     background-color: #4444;
     margin-top: 20px;
+    cursor: col-resize;
 }
