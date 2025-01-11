@@ -12,8 +12,15 @@ const createElement = (tag, className = "") => {
     return element;
 }
 
+const setPixelColor = (pixel) => {
+    pixel.style.backgroundColor = inputColor.value;
+}
+
 const createPixel = () => {
     const pixel = createElement("div", "pixel");
+
+    pixel.addEventListener("mouseDown", () => setPixelColor(pixel));
+
     return pixel;
 }
 
