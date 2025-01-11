@@ -1,3 +1,7 @@
+/* fonte título */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+/* fonte resto */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 * {
@@ -22,7 +26,8 @@ header {
 }
 
 header > h1 {
-    font-size: 1.3rem;
+    font-family: "Pixelify Sans", serif;
+    font-size: 2rem;
     font-weight: 700;
     color: #ebebeb;
 }
@@ -93,9 +98,47 @@ aside {
 .input-color::-moz-color-swatch {
     border-radius: 50px;
     border: 2px solid #ebebeb;
-  }
+}
   
 .input-color::-webkit-color-swatch {
     border-radius: 50px;
     border: 2px solid #ebebeb;
-  }
+}
+
+.used-colors {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.button-color {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-save {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 30px;
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+
+.button-save:hover {
+    background-color: #d5d4d4;
+}
+
+.resize {
+    height: 720px;
+    width: 2px;
+    background-color: #4444;
+    margin-top: 20px;
+}
