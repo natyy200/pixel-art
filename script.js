@@ -19,7 +19,7 @@ const setPixelColor = (pixel) => {
 const createPixel = () => {
     const pixel = createElement("div", "pixel");
 
-    pixel.addEventListener("mouseDown", () => setPixelColor(pixel));
+    pixel.addEventListener("mousedown", () => setPixelColor(pixel));
 
     return pixel;
 }
