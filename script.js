@@ -82,6 +82,20 @@ const resizeCanvas = (cursorPositionX) => {
     colResize.style.height = width;
 };
 
+const saveCanvas = () => {
+    html2canvas(canvas, {
+        onrendered: (image) => {
+            const img  = image.toDataURL("image/png");
+            const link = createElement("a");
+
+            link.href = img;
+            link.download = "pixelart.png";
+
+            link.click();
+        },
+    });
+};
+
 canvas.addEventListener("mousedown", () => (isPainting = true));
 canvas.addEventListener("mouseup", () => (isPainting = false));
 
@@ -91,5 +105,7 @@ inputColor.addEventListener("change", changeColor);
 colResize.addEventListener("mousedown", () => (isResizing = true));
 main.addEventListener("mouseup", () => (isResizing = false));
 main.addEventListener("mousemove", ({ clientX }) => resizeCanvas(clientX));
+
+buttonSave.addEventListener("click", saveCanvas);
 
 loadCanvas();
