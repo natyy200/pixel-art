@@ -61,11 +61,14 @@ const changeColor = () => {
     button.setAttribute("data-color", currentColor);
     button.addEventListener("click", () => inputColor.value = currentColor);
 
-    const saveColors = Array.from(usedColors.children);
+    const savedColors = Array.from(usedColors.children);
 
-    
+    const check = (btn) => btn.getAttribute("data-color") != currentColor;
 
-    usedColors.append(button);
+    if (savedColors.every(check)) {
+        usedColors.append(button);
+    }
+
 };
 
 canvas.addEventListener("mousedown", () => (isPainting = true));
