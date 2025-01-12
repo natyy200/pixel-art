@@ -9,6 +9,7 @@ const main = document.querySelector("main");
 const MIN_CANVAS_SIZE = 4;
 
 let isPainting = false;
+let isResizing = false;
 
 const createElement = (tag, className = "") => {
     const element = document.createElement(tag);
@@ -71,10 +72,24 @@ const changeColor = () => {
 
 };
 
+const resizeCanvas = (cursorPositionX) => {
+    if (!isResizing) return;
+
+    const canvasOffset = canvas.getBoundingClientRect().left;
+    const width = `${cursorPositionX - canvasOffset - 20}px`;
+
+    canvas.style.maxWidth = width;
+    colResize.style.height = width;
+};
+
 canvas.addEventListener("mousedown", () => (isPainting = true));
 canvas.addEventListener("mouseup", () => (isPainting = false));
 
 inputSize.addEventListener("change", updateCanvasSize);
 inputColor.addEventListener("change", changeColor);
+
+colResize.addEventListener("mousedown", () => (isResizing = true));
+main.addEventListener("mouseup", () => (isResizing = false));
+main.addEventListener("mousemove", ({ clientX }) => resizeCanvas(clientX));
 
 loadCanvas();
