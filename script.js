@@ -6,17 +6,19 @@ const buttonSave = document.querySelector(".button-save");
 const colResize = document.querySelector(".resize");
 const main = document.querySelector("main");
 
+const MIN_CANVAS_SIZE = 4;
+
 let isPainting = false;
 
 const createElement = (tag, className = "") => {
     const element = document.createElement(tag);
     element.className = className;
     return element;
-}
+};
 
 const setPixelColor = (pixel) => {
     pixel.style.backgroundColor = inputColor.value;
-}
+};
 
 const createPixel = () => {
     const pixel = createElement("div", "pixel");
@@ -27,7 +29,7 @@ const createPixel = () => {
     });
 
     return pixel;
-}
+};
 
 const loadCanvas = () => {
     const length = inputSize.value;
@@ -43,15 +45,33 @@ const loadCanvas = () => {
 
         canvas.append(row);
     }
-}
+};
 
 const updateCanvasSize = () => {
-    loadCanvas();
-}
+    if(inputSize.value >= MIN_CANVAS_SIZE) {
+        loadCanvas();
+    }
+};
+
+const changeColor = () => {
+    const button = createElement("button", "button-color");
+    const currentColor = inputColor.value;
+
+    button.style.backgroundColor = currentColor;
+    button.setAttribute("data-color", currentColor);
+    button.addEventListener("click", () => inputColor.value = currentColor);
+
+    const saveColors = Array.from(usedColors.children);
+
+    
+
+    usedColors.append(button);
+};
 
 canvas.addEventListener("mousedown", () => (isPainting = true));
 canvas.addEventListener("mouseup", () => (isPainting = false));
 
 inputSize.addEventListener("change", updateCanvasSize);
+inputColor.addEventListener("change", changeColor);
 
 loadCanvas();
