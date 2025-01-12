@@ -52,6 +52,6 @@ const updateCanvasSize = () => {
 canvas.addEventListener("mousedown", () => (isPainting = true));
 canvas.addEventListener("mouseup", () => (isPainting = false));
 
-inputSize.addEventListener("change", updateCanvasSize());
+inputSize.addEventListener("change", updateCanvasSize);
 
 loadCanvas();
